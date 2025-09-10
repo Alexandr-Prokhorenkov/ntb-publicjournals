@@ -8,7 +8,7 @@ import {
   computed,
   signal,
 } from '@angular/core';
-import { SvgIconComponent } from "../svg-icon/svg-icon.component";
+import { SvgIconComponent } from '../svg-icon/svg-icon.component';
 
 @Component({
   selector: 'app-photo-carousel',
@@ -19,34 +19,25 @@ import { SvgIconComponent } from "../svg-icon/svg-icon.component";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PhotoCarouselComponent {
-  /** Список URL изображений */
   @Input({ required: true }) images: string[] = [];
 
-  /** Зациклить пролистывание */
   @Input() loop = true;
 
-  /** Высота области просмотра (любая CSS-величина) */
   @Input() viewportHeight = '360px';
 
-  /** Длительность анимации (мс) */
   @Input() animationMs = 400;
 
-  /** aria-label для региона карусели */
   @Input() ariaLabel = 'Фотогалерея';
 
-  /** Текущий индекс */
   readonly index = signal(0);
 
-  /** Можно ли листать влево/вправо (актуально при loop=false) */
   readonly canPrev: Signal<boolean> = computed(() => this.loop || this.index() > 0);
   readonly canNext: Signal<boolean> = computed(
     () => this.loop || this.index() < Math.max(0, this.images.length - 1),
   );
 
-  /** Сдвиг трека в процентах */
   readonly translateX: Signal<string> = computed(() => `translateX(-${this.index() * 100}%)`);
 
-  /** Инлайн-стиль длительности анимации */
   readonly transition: Signal<string> = computed(() => `transform ${this.animationMs}ms ease`);
 
   next(): void {
@@ -74,7 +65,6 @@ export class PhotoCarouselComponent {
     this.index.set(clamped);
   }
 
-  // Управление с клавиатуры
   @HostListener('keydown', ['$event'])
   onKeydown(ev: KeyboardEvent): void {
     if (ev.key === 'ArrowRight') {
@@ -96,8 +86,10 @@ export class PhotoCarouselComponent {
   }
 
   onPointerMove(e: PointerEvent) {
+    void e;
     if (!this.dragging || this.dragStartX === null) return;
   }
+
   onPointerUp(e: PointerEvent) {
     if (!this.dragging || this.dragStartX === null) return;
     const dx = e.clientX - this.dragStartX;

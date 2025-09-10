@@ -1,13 +1,15 @@
-<app-slider [slides]="sliderData" [enableAutoSlide]="false" [enableDrag]="false"></app-slider>
-<div class="container">
-  <div class="text-block">
-    <p class="text">
-      ФГУП «НТЦ оборонного комплекса «Компас»» выпускает серию новостных обзоров, которые освещают
-      различные аспекты промышленности и смежных областей.
-    </p>
+<div class="digests-page">
+  <app-slider [slides]="sliderData" [enableAutoSlide]="false" [enableDrag]="false"></app-slider>
+  <div class="container">
+    <div class="text-block">
+      <p class="text">
+        ФГУП «НТЦ оборонного комплекса «Компас»» выпускает серию новостных обзоров, которые освещают
+        различные аспекты промышленности и смежных областей.
+      </p>
+    </div>
+    <div class="journals">
+      <app-menu-items [initialActiveId]="1" [defaultVariant]="'icon'" [items]="menuDigestsIcons" />
+    </div>
   </div>
-  <div class="journals">
-    <app-menu-items [initialActiveId]="1" [defaultVariant]="'icon'" [items]="menuDigestsIcons" />
-  </div>
+  <router-outlet />
 </div>
-<router-outlet />

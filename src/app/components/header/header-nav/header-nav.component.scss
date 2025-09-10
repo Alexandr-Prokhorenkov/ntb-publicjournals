@@ -88,7 +88,7 @@
   height: 5px;
   border-radius: 10px;
   background: currentcolor;
-  content: '';
+  content: "";
 }
 
 .burger-lines::before {
@@ -154,6 +154,9 @@
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .close-btn-icon {

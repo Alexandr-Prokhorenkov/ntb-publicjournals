@@ -34,6 +34,12 @@
   background-blend-mode: multiply;
 }
 
+@media (min-width: 1920px) {
+  .main-slider .slide {
+    background-position: 35% 70%;
+  }
+}
+
 @media (width <= 1536px) {
   .main-slider .slide {
     background-position: 110% 70%;
@@ -75,7 +81,7 @@
     position: absolute;
     z-index: 0;
     background: linear-gradient(90deg, rgb(0 0 0 / 35%), rgb(0 0 0 / 0%));
-    content: '';
+    content: "";
     inset: 0;
     pointer-events: none;
   }

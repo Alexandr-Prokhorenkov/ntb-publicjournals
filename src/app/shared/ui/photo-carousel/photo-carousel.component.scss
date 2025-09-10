@@ -10,6 +10,10 @@
   user-select: none;
 }
 
+@media (max-width: 480px) {
+  .carousel { width: 430px; }
+}
+
 .viewport {
   height: 300px;
   overflow: hidden;
