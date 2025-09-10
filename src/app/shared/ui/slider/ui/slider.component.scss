@@ -139,7 +139,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 90px 0 0;
+    padding: 60px 0 0;
     pointer-events: none;
   }
 
@@ -157,7 +157,7 @@
   }
 
   .description {
-    max-width: 500px;
+    width: 500px;
     color: var(--light-text-color);
     font-weight: var(--font-weight-light);
     font-size: 16px;
@@ -165,14 +165,20 @@
   }
 
   @media (width <= 480px) {
-    .description {
-      max-width: 400px;
+    .main-slider .description {
+      max-inline-size: 50vw;
       font-size: 15px;
     }
 
     .title {
       width: 400px;
       font-size: 30px;
+    }
+
+    .description {
+      width: 400px;
+      font-size: 16px;
+      pointer-events: none;
     }
   }
 
