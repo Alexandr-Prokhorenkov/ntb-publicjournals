@@ -8,14 +8,16 @@ import {
   inject,
   signal,
   computed,
+  AfterViewInit,
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { SvgIconComponent } from '../svg-icon/svg-icon.component';
+import dialogPolyfill from 'dialog-polyfill';
+import 'dialog-polyfill/dialog-polyfill.css';
 
 export interface PdfItem {
   title: string;
   file: string;
-  uploadedAt?: string | Date;
   info?: string;
   sizeLabel?: string;
 }
@@ -24,7 +26,6 @@ interface PdfRow {
   idx: number;
   title: string;
   info: string;
-  uploadedAtLabel: string;
   sizeLabel: string;
   url: string;
 }
@@ -36,7 +37,7 @@ interface PdfRow {
   styleUrl: './pdf-table.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PdfTableComponent {
+export class PdfTableComponent implements AfterViewInit {
   private readonly sanitizer = inject(DomSanitizer);
 
   @Input() set items(value: PdfItem[] | null) {
@@ -46,7 +47,6 @@ export class PdfTableComponent {
         idx: i + 1,
         title: it.title,
         info: it.info ?? 'Описание содержания файла',
-        uploadedAtLabel: this.formatDate(it.uploadedAt),
         sizeLabel: it.sizeLabel ?? '—',
         url: this.resolveUrl(it.file),
       })),
@@ -62,11 +62,33 @@ export class PdfTableComponent {
 
   @ViewChild('previewDialog', { static: true }) previewDialog!: ElementRef<HTMLDialogElement>;
 
+  ngAfterViewInit() {
+    const dlg = this.previewDialog.nativeElement;
+    if (!('showModal' in dlg)) {
+      dialogPolyfill.registerDialog(dlg);
+    }
+  }
+
   public trackByIdx(_: number, r: PdfRow): number {
     return r.idx;
   }
 
+  private canInlinePdf(): boolean {
+    const ua = navigator.userAgent || '';
+    const touchPoints = (navigator as Navigator & { maxTouchPoints?: number }).maxTouchPoints ?? 0;
+
+    const isIOS =
+      /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && touchPoints > 1);
+
+    const isOldAndroid = /Android/.test(ua) && !/Chrome|Firefox/.test(ua);
+    return !(isIOS || isOldAndroid);
+  }
+
   view(row: PdfRow) {
+    if (!this.canInlinePdf()) {
+      window.open(row.url, '_blank', 'noopener,noreferrer');
+      return;
+    }
     this.selected = row;
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(row.url);
     this.previewDialog.nativeElement.showModal();
@@ -93,16 +115,6 @@ export class PdfTableComponent {
     if (f.startsWith('assets/')) return f;
     const base = this.basePath.endsWith('/') ? this.basePath : this.basePath + '/';
     return base + f;
-  }
-
-  private formatDate(input?: string | Date): string {
-    if (!input) return '—';
-    const d = typeof input === 'string' ? new Date(input) : input;
-    if (isNaN(d as unknown as number)) return String(input);
-    const dd = String(d.getDate()).padStart(2, '0');
-    const mm = String(d.getMonth() + 1).padStart(2, '0');
-    const yyyy = d.getFullYear();
-    return `${dd}.${mm}.${yyyy}`;
   }
 
   public onDialogBackdropClick(e: MouseEvent): void {

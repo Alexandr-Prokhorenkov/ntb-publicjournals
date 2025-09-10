@@ -75,7 +75,7 @@
 
 .preview {
   width: min(1000px, 90vw);
-  height: min(80vh, 800px);
+  height: min(80svh, 800px);
   padding: 0;
   border: none;
   border-radius: 12px;
@@ -124,4 +124,13 @@
 html.no-scroll,
 body.no-scroll {
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .files-table th:nth-child(4),
+  .files-table td:nth-child(4),
+  .files-table th:nth-child(5),
+  .files-table td:nth-child(5) {
+    display: none !important;
+  }
 }

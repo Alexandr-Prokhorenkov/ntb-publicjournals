@@ -5,8 +5,8 @@
         <th>#</th>
         <th>Описание</th>
         <th>Тип</th>
-        <th>Размер</th>
-        <th>Название файла</th>
+        <th class="col-size">Размер</th>
+        <th class="col-filename">Название файла</th>
         <th>Просмотр</th>
         <th>Скачать</th>
       </tr>
@@ -18,10 +18,15 @@
           <td>{{ r.idx }}</td>
           <td class="name">{{ r.title }}</td>
           <td class="type"><app-svg-icon [name]="'pdf'"></app-svg-icon></td>
-          <td>{{ r.sizeLabel }}</td>
-          <td class="info">{{ r.info }}</td>
+          <td class="col-size">{{ r.sizeLabel }}</td>
+          <td class="info col-filename">{{ r.info }}</td>
           <td class="action">
-            <button type="button" class="icon-btn" title="Просмотреть" (click)="view(r)">
+            <button
+              type="button"
+              class="icon-btn"
+              title="Просмотреть"
+              (click)="view(r); $event.stopPropagation()"
+            >
               <app-svg-icon [name]="'preview'"></app-svg-icon>
             </button>
           </td>
@@ -62,7 +67,7 @@
   </header>
   @if (safeUrl) {
     <section class="content">
-      <iframe [src]="safeUrl" title="PDF preview"></iframe>
+      <iframe [src]="safeUrl" title="PDF preview" type="application/pdf"></iframe>
     </section>
   }
 </dialog>
