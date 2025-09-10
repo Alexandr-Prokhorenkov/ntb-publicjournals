@@ -1,0 +1,54 @@
+<div class="menu-card-wrapper">
+  @for (item of items; track item.id) {
+    <article
+      class="menu-card"
+      [class.is-disabled]="item.disabled"
+      [class.image-variant]="defaultVariant === 'image'"
+      routerLinkActive="active"
+      #rla="routerLinkActive"
+      [routerLinkActiveOptions]="{ exact: false }"
+      role="button"
+      [attr.tabindex]="item.disabled ? -1 : 0"
+      [attr.aria-disabled]="item.disabled || null"
+      [attr.aria-pressed]="rla?.isActive || null"
+      [attr.aria-label]="item.title"
+      (keydown)="onKeydown($event, item)"
+      [class.active]="rla?.isActive"
+    >
+      <a
+        class="menu-card-link"
+        [routerLink]="item.routerLink"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: false }"
+        [queryParamsHandling]="'preserve'"
+        (click)="onLinkClick($event, item)"
+      >
+        <div class="type-block" [class.image-variant]="defaultVariant === 'image'">
+          {{ item.type }}
+        </div>
+        @if (defaultVariant === 'icon') {
+          <div class="icon-wrap">
+            <div class="icon-wrapper">
+              <app-svg-icon class="icon" [name]="item?.iconName ?? 'placeholder-icon'" />
+            </div>
+          </div>
+        }
+        @if (defaultVariant === 'image') {
+          <div class="image-wrapper">
+            <img
+              class="image"
+              [src]="item.imageUrl"
+              [alt]="item.title"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        }
+
+        <div class="text-block">
+          <p class="text">{{ item.title }}</p>
+        </div>
+      </a>
+    </article>
+  }
+</div>

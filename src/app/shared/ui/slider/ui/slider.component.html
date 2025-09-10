@@ -1,0 +1,50 @@
+<div class="main-slider">
+  <div
+    class="container slider-content"
+    #sliderContainer
+    [class.drag-enabled]="enableDrag"
+    (mousedown)="onMouseDown($event)"
+    (touchstart)="onTouchStart($event)"
+    [class.dragging]="isDragging"
+  >
+    @if (slidesList.length > 0) {
+      @for (slide of slidesList; track $index) {
+        <div
+          class="slide"
+          [class.active]="$index === currentIndex"
+          [class.slide-left]="$index === nextIndex"
+          [class.slide-right]="$index !== currentIndex && $index !== nextIndex"
+          [style.--slide-bg]="'url(' + slide.image + ')'"
+          [style.transform]="transformsMap[$index] ?? null"
+        >
+          <div class="text">
+            <h2 class="title">{{ slide.title }}</h2>
+            <p class="description">{{ slide.description }}</p>
+          </div>
+        </div>
+      }
+
+      @if (slidesList.length > 1) {
+        <div class="dots" aria-label="Навигация по слайдам">
+          @for (_ of slidesList; track $index) {
+            <button
+              type="button"
+              class="dot"
+              [class.active]="$index === currentIndex"
+              (click)="goTo($index)"
+              (keydown.enter)="goTo($index)"
+              (keydown.space)="goTo($index)"
+              [attr.aria-current]="$index === currentIndex ? 'true' : null"
+              [attr.aria-label]="'Слайд ' + ($index + 1) + ' из ' + slidesList.length"
+              [attr.aria-controls]="'slide-' + $index"
+            ></button>
+          }
+        </div>
+      }
+    } @else {
+      <div class="no-slides">
+        <p>Нет доступных слайдов</p>
+      </div>
+    }
+  </div>
+</div>

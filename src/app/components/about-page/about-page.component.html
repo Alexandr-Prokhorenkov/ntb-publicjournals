@@ -1,0 +1,182 @@
+<div class="padding">
+  <app-slider [slides]="sliderData" [enableAutoSlide]="false" [enableDrag]="false"></app-slider>
+  <div class="container">
+    <div class="about-page-wrapper">
+      <div class="about-us-description">
+        <div class="text-block-description">
+          <h3 class="our-description-title">ФГУП «НТЦ оборонного комплекса «Компас»»</h3>
+          <div class="decription-block">
+            <p class="our-description-text">
+              <b>ФГУП «НТЦ оборонного комплекса «Компас»»</b> был создан в 1975 г. для комплексного
+              информационного обеспечения разработок, производства и управления в оборонных отраслях
+              промышленности, а также для отбора и передачи в различные сферы народного хозяйства
+              научно-технических достижений оборонного комплекса.
+            </p>
+            <p class="our-description-text">
+              В настоящее время <b>ФГУП «НТЦ оборонного комплекса «Компас»»</b> — федеральный
+              информационно-аналитический центр оборонной промышленности, главной задачей которого
+              является формирование и эффективное использование государственных ресурсов
+              научно-технической информации, а также их интеграция в мировое информационное
+              пространство.
+            </p>
+          </div>
+        </div>
+        <div class="about-us-description-block">
+          <app-photo-carousel
+            [images]="[
+              '/assets/images/kompas.jpg',
+              '/assets/images/kompas-1.jpg',
+              '/assets/images/kompas-2.jpg',
+              '/assets/images/kompas-3.jpg',
+              '/assets/images/kompas-4.jpg',
+            ]"
+            [loop]="true"
+            viewportHeight="420px"
+            [animationMs]="450"
+            ariaLabel="Фотографии объекта"
+          ></app-photo-carousel>
+        </div>
+      </div>
+      <div class="our-analitics">
+        <h3 class="our-description-title">
+          Центр готовит информационно-аналитическую продукцию (ИАП) для:
+        </h3>
+        <div class="our-analitics-cards">
+          <div class="our-analitics-card">
+            <app-svg-icon class="icon kremlin" [name]="'white-house'"></app-svg-icon>
+            <h5 class="our-analitics-card-title">Государственного сектора</h5>
+            <p class="our-analitics-card-text kremlin-text">
+              в контексте стратегического планирования развития страны и оперативного управления
+              текущей деятельностью в сфере научно-технического и промышленного развития.
+            </p>
+          </div>
+          <div class="our-analitics-card">
+            <app-svg-icon class="icon" [name]="'innovation'"></app-svg-icon>
+            <h5 class="our-analitics-card-title">Инновационного сектора экономики</h5>
+            <p class="our-analitics-card-text innovation-text">
+              где ИАП является информационной поддержкой развития национальных отраслей, создания
+              научно-технических новшеств, принятия решений по перспективным направлениям и
+              приоритетам развития прикладной науки.
+            </p>
+          </div>
+          <div class="our-analitics-card">
+            <app-svg-icon class="icon" [name]="'innovation-economy'"></app-svg-icon>
+            <h5 class="our-analitics-card-title">Инновационно-инвестиционного сектора экономики</h5>
+            <p class="our-analitics-card-text">
+              где ИАП служит информационной поддержкой принятия решений по направлениям, объемам,
+              срокам и эффективности вложения государственного и частного капитала в развитие
+              народнохозяйственного комплекса.
+            </p>
+          </div>
+          <div class="our-analitics-card">
+            <app-svg-icon class="icon" [name]="'small-buisness'"></app-svg-icon>
+            <h5 class="our-analitics-card-title">Малого и среднего предпринимательства</h5>
+            <p class="our-analitics-card-text">
+              занятого разработкой и внедрением научно-технических новшеств и выведением их на
+              потребительский рынок (сектор научно-инновационного бизнеса).
+            </p>
+          </div>
+          <div class="our-analitics-card">
+            <app-svg-icon class="icon" [name]="'education'"></app-svg-icon>
+            <h5 class="our-analitics-card-title">Образовательной сферы</h5>
+            <p class="our-analitics-card-text education-text">
+              где проводится государственная и коммерческая подготовка кадров, включая высшую
+              квалификацию.
+            </p>
+          </div>
+        </div>
+      </div>
+      <h3 class="our-description-title">Основные направления деятельности центра:</h3>
+      <div class="our-directions-cards-wrapper">
+        <div class="our-direction-card">
+          <div class="icon-wrapper">
+            <app-svg-icon class="icon" [name]="'national-security'"></app-svg-icon>
+          </div>
+          <h5 class="our-analitics-card-title">Системные исследования</h5>
+          <p class="our-analitics-card-text education-text">
+            в области обеспечения безопасности страны, выбор направлений развития техники,
+            экономики, критических технологий и технологий двойного применения.
+          </p>
+        </div>
+        <div class="our-direction-card">
+          <div class="icon-wrapper">
+            <app-svg-icon class="icon" [name]="'analytics-info'"></app-svg-icon>
+          </div>
+          <h5 class="our-analitics-card-title">Аналитико-информационное</h5>
+          <p class="our-analitics-card-text education-text">
+            обеспечение процессов конверсии и проблем перехода оборонных предприятий на выпуск новой
+            продукции.
+          </p>
+        </div>
+        <div class="our-direction-card">
+          <div class="icon-wrapper">
+            <app-svg-icon class="icon" [name]="'info-analytics'"></app-svg-icon>
+          </div>
+          <h5 class="our-analitics-card-title">Информационно-аналитическое</h5>
+          <p class="our-analitics-card-text education-text">
+            обеспечение исследований и разработок материалами из документо-графических и
+            объекто-графических баз данных, справочно-информационного фонда.
+          </p>
+        </div>
+        <div class="our-direction-card">
+          <div class="icon-wrapper">
+            <app-svg-icon class="icon" [name]="'manual-books'"></app-svg-icon>
+          </div>
+          <h5 class="our-analitics-card-title">Издание</h5>
+          <p class="our-analitics-card-text education-text">
+            научно-технических журналов и сборников, информационных справочников и каталогов.
+          </p>
+        </div>
+        <div class="our-direction-card">
+          <div class="icon-wrapper">
+            <app-svg-icon class="icon" [name]="'conference'"></app-svg-icon>
+          </div>
+          <h5 class="our-analitics-card-title">Организация и проведение</h5>
+          <p class="our-analitics-card-text education-text">
+            конференций, семинаров, выставок, деловых встреч.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contacts-wrapper-bg">
+    <div class="container">
+  
+      <div class="contacts-wrapper">
+      <div class="contacts-info-wrapper">
+        <h3 class="our-description-title">Контакты</h3>
+        <div class="contact-item">
+          <span class="contact-title">Телефон:</span>
+          <div class="contact-item-icon">
+            <app-svg-icon class="phone-icon" [name]="'phone'"></app-svg-icon>
+          </div>
+
+          <div class="phone-numbers">
+            <p class="phone-text">+7 (495) 491-57-97 (приемная)</p>
+            <p class="phone-text">+7 (495) 491-44-80 (факс)</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-title">E-mail:</span>
+          <div class="contact-item-icon">
+            <app-svg-icon class="phone-icon" [name]="'email'"></app-svg-icon>
+          </div>
+          <div class="phone-numbers">
+            <p class="phone-text">secretariat@ntckompas.ru</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-title">Адрес:</span>
+          <div class="contact-item-icon">
+            <app-svg-icon class="phone-icon" [name]="'location'"></app-svg-icon>
+          </div>
+          <div class="phone-numbers">
+            <p class="phone-text">Россия, г. Москва, Волоколамское шоссе, дом. 77</p>
+          </div>
+        </div>
+      </div>
+      <img class="image-map" src="assets/images/map.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>

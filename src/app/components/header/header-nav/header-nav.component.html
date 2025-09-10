@@ -1,0 +1,66 @@
+<nav class="header-nav" aria-label="Основное меню">
+  @for (item of menuItems; track item.route) {
+    <a
+      class="menu-item"
+      [routerLink]="item.route"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="item.linkActiveOptions"
+    >
+      {{ item.label }}
+    </a>
+  }
+</nav>
+
+<button
+  type="button"
+  class="burger-btn"
+  aria-label="Открыть меню"
+  [attr.aria-expanded]="mobileOpen ? 'true' : 'false'"
+  aria-controls="mobileMenu"
+  (click)="openMobileMenu()"
+>
+  <span class="burger-lines" aria-hidden="true"></span>
+</button>
+
+<dialog
+  #mobileMenu
+  id="mobileMenu"
+  class="mobile-menu"
+  aria-modal="true"
+  aria-labelledby="mobileMenuTitle"
+  tabindex="0"
+  (cancel)="onMobileCancel($event)"
+  (click)="onDialogBackdropClick($event)"
+  (keydown)="onDialogKeydown($event)"
+>
+  <div class="mobile-sheet">
+    <header class="mobile-header">
+      <div class="mobile-title" id="mobileMenuTitle">Меню</div>
+      <button
+        type="button"
+        class="close-btn"
+        aria-label="Закрыть меню"
+        (click)="closeMobileMenu()"
+        (keyup.enter)="closeMobileMenu()"
+        (keyup.space)="closeMobileMenu()"
+      >
+        <app-svg-icon class="close-btn-icon" name="close"></app-svg-icon>
+      </button>
+    </header>
+
+    <nav class="mobile-nav" aria-label="Мобильное меню">
+      @for (item of menuItems; track item.route) {
+        <a
+          class="mobile-link"
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="item.linkActiveOptions"
+          (click)="closeMobileMenu()"
+          (keyup.enter)="closeMobileMenu()"
+        >
+          {{ item.label }}
+        </a>
+      }
+    </nav>
+  </div>
+</dialog>

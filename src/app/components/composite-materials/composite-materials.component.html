@@ -1,0 +1,8 @@
+<div class="container">
+    <h3 class="title-page">«Конструкции из композиционных материалов» (КМ) (ОКНТПР)</h3>
+  <div class="year-block">
+    @for (year of years; track year) {
+      <app-year-section [year]="year" [items]="getDocs(year)" />
+    }
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<section
+  class="carousel"
+  role="region"
+  [attr.aria-label]="ariaLabel"
+  tabindex="0"
+  [style.--viewport-height]="viewportHeight"
+  [style.--transition]="transition()"
+>
+  <div
+    class="viewport"
+    class="viewport"
+    (pointerdown)="onPointerDown($event)"
+    (pointermove)="onPointerMove($event)"
+    (pointerup)="onPointerUp($event)"
+  >
+    <div class="track" [style.transform]="translateX()" [style.transition]="transition()">
+      @for (src of images; track src) {
+        <figure class="slide">
+          <img [src]="src" loading="lazy" alt="" />
+        </figure>
+      }
+    </div>
+  </div>
+
+  <button
+    type="button"
+    class="nav prev"
+    aria-label="Назад"
+    [disabled]="!canPrev() || images.length <= 1"
+    (click)="prev()"
+  >
+    <div class="icon-wrapper"><app-svg-icon class="icon left" [name]="'arrow-right'"></app-svg-icon></div>
+  </button>
+
+  <button
+    type="button"
+    class="nav next"
+    aria-label="Вперёд"
+    [disabled]="!canNext() || images.length <= 1"
+    (click)="next()"
+  >
+    <div class="icon-wrapper"><app-svg-icon class="icon" [name]="'arrow-right'"></app-svg-icon></div>
+  </button>
+  @if (images.length > 1) {
+    <div class="dots">
+      @for (src of images; track src; let i = $index) {
+        <button
+          type="button"
+          class="dot"
+          [class.active]="index() === i"
+          [attr.aria-label]="'К слайду ' + (i + 1)"
+          (click)="goTo(i)"
+        ></button>
+      }
+    </div>
+  }
+</section>

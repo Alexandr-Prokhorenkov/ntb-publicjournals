@@ -1,0 +1,13 @@
+<div class="year-block">
+  <div class="year-block-wrapper" [class.reverse]="reverse">
+    <div class="year" [style.opacity]="yearOpacity">
+      {{ year }}
+    </div>
+
+    <div class="content">
+      <h3 class="title">{{ title }}</h3>
+      <p class="desc">{{ text }}</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+</div>

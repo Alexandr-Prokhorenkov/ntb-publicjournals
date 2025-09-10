@@ -1,0 +1,71 @@
+.year-item-wrapper {
+  background: var(--bg, #fff);
+  border-bottom: 1px solid var(--light-grey-text-color);
+}
+
+.year-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 14px;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--super-light-grey-text-color-hover);
+    cursor: pointer;
+  }
+}
+
+.year-text {
+  margin: 0;
+  color: var(--primary-text-color);
+  font-weight: var(--font-weight-bold);
+  font-size: 50px;
+}
+
+.toggle-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  border: none;
+  background: transparent;
+  color: var(--primary-text-color);
+  line-height: 0;
+  transition: transform 200ms ease;
+  cursor: pointer;
+
+  app-svg-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    transform: rotate(-45deg);
+  }
+
+  &.open {
+    transform: rotate(45deg);
+  }
+}
+
+.panel {
+  display: grid;
+  opacity: 0;
+  padding: 0 14px;
+  transition:
+    grid-template-rows 250ms ease,
+    opacity 250ms ease,
+    padding 250ms ease;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+
+  &.open {
+    opacity: 1;
+    padding: 8px 14px 14px;
+    grid-template-rows: 1fr;
+  }
+
+  .panel-inner {
+    overflow: hidden;
+  }
+}

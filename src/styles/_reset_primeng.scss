@@ -1,0 +1,238 @@
+.p-inputtext {
+  height: 45px;
+  border: 1px solid var(--light-grey-text-color);
+  font-weight: var(--font-weight-light);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: none;
+  font-family: var(--font-family-base);
+
+  &:hover {
+    border-color: var(--grey-text-color);
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    border-color: var(--primary-text-color);
+    box-shadow: 0 0 0 2px rgb(var(--primary-color-rgb), 0.2);
+  }
+}
+
+.p-cascadeselect-label {
+  width: 150px;
+  height: 45px;
+}
+
+.p-dropdown-label {
+  display: block;
+  width: 100px;
+  border: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.selected-country,
+.selected-region,
+.selected-manufacturer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.selected-country-text,
+.selected-region-text,
+.selected-manufacturer-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.p-dropdown .selected-country {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.p-dropdown .selected-region {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.p-dropdown .p-dropdown-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.p-dropdown {
+  width: 234px;
+  border-radius: 0;
+  box-shadow: none;
+
+  &:hover {
+    border-color: var(--grey-text-color);
+  }
+}
+
+.p-dropdown.p-focus {
+  border-color: var(--primary-text-color);
+}
+
+.p-cascadeselect.p-focus {
+  border-color: var(--primary-text-color);
+}
+
+.p-component {
+  height: 45px;
+  border-radius: 0;
+  font-weight: var(--font-weight-light);
+  box-shadow: none;
+  font-family: var(--font-family-base);
+
+  &:hover {
+    border-color: var(--grey-text-color);
+  }
+}
+
+.p-cascadeselect .p-cascadeselect-label {
+  font-size: 15px;
+}
+
+.p-cascadeselect-item-content {
+  font-weight: var(--font-weight-light);
+  font-size: 14px;
+  font-family: var(--font-family-base);
+}
+
+.p-cascadeselect-item-content.p-highlight {
+  font-weight: var(--font-weight-bold);
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  background-color: var(--light-text-color);
+  font-weight: var(--font-weight-light);
+  font-size: 14px;
+  font-family: var(--font-family-base);
+  text-transform: none;
+
+  &:hover {
+    background-color: var(--hover-select-color);
+  }
+}
+
+.p-cascadeselect-panel {
+  border-radius: 0;
+}
+
+.p-dropdown-panel .p-dropdown-items.p-highlight {
+  font-weight: var(--font-weight-light);
+  font-family: var(--font-family-base);
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  background: var(--active-select-color);
+  color: var(--dark-text-color);
+}
+
+.p-cascadeselect-panel .p-cascadeselect-item.p-highlight {
+  background: var(--active-select-color);
+  color: var(--dark-text-color);
+}
+
+.p-element .p-dropdown-label .p-inputtext {
+  overflow: hidden;
+}
+
+.custom-calendar {
+  width: 234px;
+}
+
+.fme-datepicker.p-datepicker {
+  height: fit-content;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 8%);
+  overflow: hidden;
+}
+
+.fme-datepicker .p-datepicker-header {
+  padding: 8px 12px;
+  border-radius: 0;
+}
+
+.fme-datepicker .p-datepicker-title {
+  font-weight: var(--font-weight-medium);
+  font-size: 18px;
+  font-family: var(--font-family-base);
+}
+
+.fme-datepicker .p-datepicker-prev,
+.fme-datepicker .p-datepicker-next {
+  width: 28px;
+  height: 28px;
+  color: var(--light-grey-text-color);
+}
+
+.fme-datepicker .p-datepicker-group .p-datepicker-weekday {
+  padding: 6px 0;
+  color: var(--grey-text-color);
+  font-size: 12px;
+}
+
+.fme-datepicker table td > span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  line-height: 2.25rem;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.fme-datepicker table td > span:hover {
+  background-color: var(--active-select-color);
+}
+
+.fme-datepicker table td.p-datepicker-today > span {
+  border-radius: 50%;
+  background-color: var(--primary-text-color);
+  color: var(--light-text-color);
+  font-weight: var(--font-weight-medium);
+  outline-offset: -2px;
+}
+
+.fme-datepicker table td.p-highlight > span {
+  background: var(--active-select-color);
+  color: var(--dark-text-color);
+}
+
+.fme-datepicker table td.p-datepicker-other-month > span {
+  color: var(--light-grey-text-color);
+}
+
+.fme-datepicker .p-timepicker span.p-inputtext {
+  width: 3rem;
+  text-align: center;
+}
+
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {
+  margin-right: 0.5rem;
+}

@@ -1,0 +1,68 @@
+@if (hasRows()) {
+  <table class="files-table">
+    <thead class="header-table">
+      <tr>
+        <th>#</th>
+        <th>Описание</th>
+        <th>Тип</th>
+        <th>Размер</th>
+        <th>Название файла</th>
+        <th>Просмотр</th>
+        <th>Скачать</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (r of rows(); track r.idx) {
+        <tr class="table-body" (click)="view(r)">
+          <td>{{ r.idx }}</td>
+          <td class="name">{{ r.title }}</td>
+          <td class="type"><app-svg-icon [name]="'pdf'"></app-svg-icon></td>
+          <td>{{ r.sizeLabel }}</td>
+          <td class="info">{{ r.info }}</td>
+          <td class="action">
+            <button type="button" class="icon-btn" title="Просмотреть" (click)="view(r)">
+              <app-svg-icon [name]="'preview'"></app-svg-icon>
+            </button>
+          </td>
+          <td class="action">
+            <a
+              class="icon-btn"
+              title="Скачать"
+              [href]="r.url"
+              [attr.download]="r.info"
+              (click)="$event.stopPropagation()"
+              ><app-svg-icon [name]="'download'"></app-svg-icon
+            ></a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+} @else {
+  <div class="empty">Нет документов</div>
+}
+
+<dialog
+  #previewDialog
+  class="preview"
+  role="dialog"
+  aria-modal="true"
+  tabindex="0"
+  (click)="onDialogBackdropClick($event)"
+  (keydown.enter)="onDialogBackdropKey()"
+  (keydown.space)="onDialogBackdropKey()"
+  (cancel)="onDialogCancel($event)"
+>
+  <header>
+    <div class="title">{{ selected?.title }}</div>
+    <button type="button" class="icon-btn-close" (click)="closePreview()">
+      <app-svg-icon [name]="'close'"></app-svg-icon>
+    </button>
+  </header>
+  @if (safeUrl) {
+    <section class="content">
+      <iframe [src]="safeUrl" title="PDF preview"></iframe>
+    </section>
+  }
+</dialog>

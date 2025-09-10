@@ -1,0 +1,14 @@
+<app-slider [slides]="sliderData" [enableAutoSlide]="false" [enableDrag]="false"></app-slider>
+<div class="container">
+  <div class="text-block">
+    <p class="text">
+      ФГУП «НТЦ оборонного комплекса «Компас»» осуществляет издательскую деятельность в
+      научно-технической сфере. Предприятие специализируется на выпуске профильных журналов по
+      различным направлениям науки и техники
+    </p>
+  </div>
+  <div class="journals">
+    <app-menu-items [initialActiveId]="1" [defaultVariant]="'icon'" [items]="menuJournalsIcons" />
+  </div>
+</div>
+<router-outlet />

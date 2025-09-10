@@ -1,0 +1,38 @@
+<app-slider [slides]="sliderData" [enableAutoSlide]="false" [enableDrag]="false"></app-slider>
+<div class="container">
+  <div class="our-services-cards">
+       @for (s of services; track s.title) {
+      <app-our-service-card
+        [iconName]="s.icon"
+        [title]="s.title"
+        [text]="s.text"
+        (cardClick)="scrollToContacts()"
+      />
+    }
+  </div>
+  <div class="contacts-info-wrapper" #contacts>
+    <h3 class="contacts-title">Отдел научных и информационных изданий</h3>
+    <div class="contact-items">
+    <div class="contact-item">
+      <span class="contact-info-title">Телефон:</span>
+      <div class="contact-item-icon">
+        <app-svg-icon class="phone-icon" [name]="'phone'"></app-svg-icon>
+      </div>
+      <div class="phone-numbers">
+        <p class="phone-text">+7 (495) 491-43-17</p>
+        <p class="phone-text">+7 (495) 491-44-80</p>
+      </div>
+    </div>
+    <div class="contact-item">
+        <span class="contact-info-title">E-mail:</span>
+          <div class="contact-item-icon">
+            <app-svg-icon class="phone-icon" [name]="'email'"></app-svg-icon>
+          </div>
+          <div class="phone-numbers">
+            <p class="phone-text">izdanie@ntckompas.ru</p>
+             <p class="phone-text">ivleva.@ntckompas.ru</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

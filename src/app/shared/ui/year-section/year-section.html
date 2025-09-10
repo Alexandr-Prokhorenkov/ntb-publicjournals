@@ -1,0 +1,27 @@
+<div class="year-item-wrapper">
+  <button
+    type="button"
+    class="year-item"
+    (click)="toggle()"
+    [attr.aria-expanded]="isOpen()"
+    [attr.aria-controls]="'panel-' + year"
+    [id]="'accordion-header-' + year"
+  >
+    <p class="year-text">{{ year }}</p>
+    <span class="toggle-btn" [class.open]="isOpen()" aria-hidden="true">
+      <app-svg-icon name="close"></app-svg-icon>
+    </span>
+  </button>
+
+  <div
+    class="panel"
+    [class.open]="isOpen()"
+    [id]="'panel-' + year"
+    role="region"
+    [attr.aria-labelledby]="'accordion-header-' + year"
+  >
+    <div class="panel-inner">
+      <app-pdf-table [items]="itemsValue()"></app-pdf-table>
+    </div>
+  </div>
+</div>

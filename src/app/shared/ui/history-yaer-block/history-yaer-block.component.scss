@@ -1,0 +1,50 @@
+.content {
+  flex: 1 1 auto;
+  max-width: 820px;
+
+  .title {
+    margin: 8px 0 12px;
+    font-weight: var(--font-weight-semibold);
+    font-size: 30px;
+    line-height: 0.9;
+    text-align: left;
+  }
+
+  .desc {
+    margin: 0;
+    font-weight: var(--font-weight-light);
+    font-size: 16px;
+    text-align: justify;
+  }
+}
+
+.year-block-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  padding: 16px 0;
+
+  &.reverse {
+    flex-direction: row-reverse;
+
+    .content {
+      text-align: left;
+    }
+  }
+}
+
+.year {
+  color: #1f3140;
+  font-weight: 800;
+  font-size: clamp(64px, 12vw, 128px);
+  line-height: 0.9;
+}
+
+.divider {
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-bottom: 1px solid var(--light-grey-text-color);
+}
