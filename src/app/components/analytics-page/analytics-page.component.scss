@@ -18,6 +18,12 @@
     0 8px 20px rgb(0 0 0 / 8%);
 }
 
+@media (max-width: 480px) {
+  .text-block {
+    margin-top: 10px;
+  }
+}
+
 .subtitle {
   font-weight: var(--font-weight-bold);
   font-size: 25px;

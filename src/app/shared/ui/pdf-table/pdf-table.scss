@@ -134,3 +134,15 @@ body.no-scroll {
     display: none !important;
   }
 }
+
+@media (max-width: 480px) {
+  .files-table th:nth-child(3),
+  .files-table td:nth-child(3),
+  .files-table th:nth-child(7),
+  .files-table td:nth-child(7) {
+    display: none !important;
+  }
+  .files-table .name { 
+    max-width: 100px;
+  }
+}

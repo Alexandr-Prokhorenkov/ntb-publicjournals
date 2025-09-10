@@ -79,8 +79,9 @@
 .contact-items {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
-  padding: 0 120px 50px;
 }
 
 .contact-item {
@@ -97,6 +98,12 @@
   border-radius: 30px;
   font-weight: var(--font-weight-semibold);
   font-size: 20px;
+}
+
+@media (max-width: 480px) {
+  .contact-info-title {
+    display: none;
+  }
 }
 
 .contact-item-icon {
@@ -122,4 +129,5 @@
 .phone-text {
   font-weight: var(--font-weight-light);
   font-size: 16px;
+  width: 150px;
 }
