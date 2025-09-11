@@ -35,6 +35,7 @@ export interface MenuItemCard {
 })
 export class MenuItemsComponent {
   private readonly _items = signal<MenuItemCard[]>([]);
+  private _scrollToBottomAfterNav = false;
   private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
 
@@ -70,19 +71,23 @@ export class MenuItemsComponent {
     this.router.events
       .pipe(
         filter((e): e is NavigationEnd => e instanceof NavigationEnd),
-        // ждём, пока Angular дорисует новый роут и все микротаски завершатся
         switchMap(() => this.ngZone.onStable.pipe(take(1))),
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe(() => {
         const y = this.scrollMem.consume();
-        // избегаем лишнего скролла на 0–1px, который даёт «дёрг»
-        if (y != null && Math.abs((window.scrollY ?? 0) - y) > 1) {
+
+        if (this._scrollToBottomAfterNav && this.isSmallViewport()) {
+          this._scrollToBottomAfterNav = false;
+          this.scrollToBottomSmooth();
+        } else if (y != null && Math.abs((window.scrollY ?? 0) - y) > 1) {
           window.scrollTo({ top: y, behavior: 'auto' });
         }
+
         this.recalcActiveById();
       });
   }
+
   private applyInitialIfPossible(): void {
     if (this._initialApplied) return;
     if (this._initialActiveId == null) return;
@@ -117,7 +122,7 @@ export class MenuItemsComponent {
       return;
     }
     this.scrollMem.snapshot();
-    this.cardClick.emit(item);
+    this._scrollToBottomAfterNav = this.isSmallViewport();
   }
 
   public onKeydown(e: KeyboardEvent, item: MenuItemCard): void {
@@ -139,5 +144,34 @@ export class MenuItemsComponent {
       return;
     }
     this.scrollMem.snapshot();
+    this._scrollToBottomAfterNav = true;
+  }
+
+  private scrollToBottomSmooth(): void {
+    const docEl = (document.scrollingElement ?? document.documentElement) as HTMLElement;
+    const target = Math.max(0, docEl.scrollHeight - docEl.clientHeight);
+
+    this.ngZone.runOutsideAngular((): void => {
+      const onScroll: EventListener = (): void => {
+        const y = window.scrollY;
+        if (y + window.innerHeight >= docEl.scrollHeight - 2) {
+          window.removeEventListener('scroll', onScroll);
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.scrollTo({ top: target, behavior: 'smooth' });
+
+      const timeoutId = window.setTimeout((): void => {
+        window.removeEventListener('scroll', onScroll);
+        window.clearTimeout(timeoutId);
+      }, 1200);
+    });
+  }
+
+  private isSmallViewport(): boolean {
+    return typeof window !== 'undefined'
+      ? (window.matchMedia?.('(max-width: 480px)').matches ?? window.innerWidth <= 480)
+      : false;
   }
 }
