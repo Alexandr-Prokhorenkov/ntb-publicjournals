@@ -4,10 +4,20 @@
     class="year-item"
     (click)="toggle()"
     [attr.aria-expanded]="isOpen()"
-    [attr.aria-controls]="'panel-' + year"
-    [id]="'accordion-header-' + year"
+    [attr.aria-controls]="'panel-' + data.year"
+    [id]="'accordion-header-' + data.year"
   >
-    <p class="year-text">{{ year }}</p>
+    <div class="accordion-text-block">
+      <p class="year-text">{{ data.year }}</p>
+      <div class="accordion-icon">
+        @if (data.subscription) {
+          <app-svg-icon name="ruble-circle"></app-svg-icon>
+        } @else {
+          <app-svg-icon class="check" name="check-circle"></app-svg-icon>
+        }
+      </div>
+    </div>
+
     <span class="toggle-btn" [class.open]="isOpen()" aria-hidden="true">
       <app-svg-icon name="close"></app-svg-icon>
     </span>
@@ -16,9 +26,9 @@
   <div
     class="panel"
     [class.open]="isOpen()"
-    [id]="'panel-' + year"
+    [id]="'panel-' + data.year"
     role="region"
-    [attr.aria-labelledby]="'accordion-header-' + year"
+    [attr.aria-labelledby]="'accordion-header-' + data.year"
   >
     <div class="panel-inner">
       <app-pdf-table [items]="itemsValue()"></app-pdf-table>

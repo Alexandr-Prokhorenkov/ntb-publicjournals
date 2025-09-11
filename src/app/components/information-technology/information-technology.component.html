@@ -1,8 +1,8 @@
 <div class="container">
   <h3 class="title-page">«Информационные технологии в проектировании и производстве» (ИТПП)</h3>
   <div class="year-block">
-    @for (year of years; track year) {
-      <app-year-section [year]="year" [items]="getDocs(year)" />
+    @for (year of yearsData; track year.year) {
+      <app-year-section [data]="year" [items]="getDocs(year.year)" />
     }
   </div>
 </div>

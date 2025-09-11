@@ -46,7 +46,7 @@ export const MENU_JOURNALS_ICONS: MenuItemCard[] = [
 export const MENU_DIGESTS_ICONS: MenuItemCard[] = [
   {
     id: 1,
-    type: 'Новостной журнал',
+    type: 'Дайджест',
     title: 'Машиностроение',
     routerLink: '/digests/ground-troops',
     iconName: 'tank',
@@ -54,7 +54,7 @@ export const MENU_DIGESTS_ICONS: MenuItemCard[] = [
   },
   {
     id: 2,
-    type: 'Новостной журнал',
+    type: 'Дайджест',
     title: 'Кораблестроение',
     routerLink: '/digests/naval-forces',
     iconName: 'ship',
@@ -62,7 +62,7 @@ export const MENU_DIGESTS_ICONS: MenuItemCard[] = [
   },
   {
     id: 3,
-    type: 'Новостной журнал',
+    type: 'Дайджест',
     title: 'Робототехника',
     routerLink: '/digests/robotics',
     iconName: 'roboto',
@@ -70,7 +70,7 @@ export const MENU_DIGESTS_ICONS: MenuItemCard[] = [
   },
   {
     id: 4,
-    type: 'Новостной журнал',
+    type: 'Дайджест',
     title: 'Авиастроение',
     routerLink: '/digests/aviation',
     iconName: 'plane',
@@ -78,7 +78,7 @@ export const MENU_DIGESTS_ICONS: MenuItemCard[] = [
   },
   {
     id: 5,
-    type: 'Новостной журнал',
+    type: 'Дайджест',
     title: 'Ракетостроение',
     routerLink: '/digests/space-forces',
     iconName: 'space',
@@ -98,7 +98,7 @@ export const MENU_ANALITICS_JOURNALS_ICONS: MenuItemCard[] = [
   {
     id: 2,
     type: 'Аналитический журнал',
-    title: 'Искуственный интелллект',
+    title: 'Искусственный интеллект',
     routerLink: '/analytics/artificial-intelligence',
     iconName: 'ai',
     disabled: false,

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PdfItem } from '../../shared/ui/pdf-table/pdf-table';
-import { YearSectionComponent } from '../../shared/ui/year-section/year-section';
+import { YearInfo, YearSectionComponent } from '../../shared/ui/year-section/year-section';
 
 @Component({
   selector: 'app-defense-enterprise',
@@ -10,7 +10,14 @@ import { YearSectionComponent } from '../../shared/ui/year-section/year-section'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DefenseEnterpriseComponent {
-  readonly years = [2025, 2024, 2023, 2022, 2021, 2020];
+  readonly yearsData: YearInfo[] = [
+    { year: 2025, subscription: true },
+    { year: 2024, subscription: true },
+    { year: 2023, subscription: false },
+    { year: 2022, subscription: false },
+    { year: 2021, subscription: false },
+    { year: 2020, subscription: false },
+  ];
 
   readonly docsByYear: Record<number, PdfItem[]> = {
     2025: [

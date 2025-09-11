@@ -11,7 +11,7 @@ import { PdfItem, PdfTableComponent } from '../../shared/ui/pdf-table/pdf-table'
 export class AviationComponent {
   readonly aviationsDocs: PdfItem[] = [
     {
-      title: '"Авиастроение - 2025". Выпуск -1.',
+      title: '"Авиастроение - 1.2025"',
       file: 'Д-АВИАСТРОЕНИЕ-2025.pdf',
       info: 'Д-АВИАСТРО/НИЕ-2025.pdf',
       sizeLabel: '1.8 МБ',

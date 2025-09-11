@@ -11,7 +11,7 @@ import { PdfItem, PdfTableComponent } from '../../shared/ui/pdf-table/pdf-table'
 export class SpaceForcesComponent {
   readonly navalDocs: PdfItem[] = [
     {
-      title: '"Ракетостроение - 2025". Выпуск -1.',
+      title: '"Ракетостроение - 3.2025"',
       file: 'Д-РАКЕТНАЯ-2025.pdf',
       info: 'Д-РАКЕТНАЯ-2025.pdf',
       sizeLabel: '1.4 МБ',
