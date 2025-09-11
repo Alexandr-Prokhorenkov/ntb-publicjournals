@@ -65,9 +65,23 @@
       <app-svg-icon [name]="'close'"></app-svg-icon>
     </button>
   </header>
-  @if (safeUrl) {
+
+  @if (selected) {
     <section class="content">
-      <iframe [src]="safeUrl" title="PDF preview" type="application/pdf"></iframe>
+      <ngx-extended-pdf-viewer
+        [src]="selected.url"
+        [height]="'100%'"
+        useBrowserLocale="true"
+        [textLayer]="true"
+        [showDownloadButton]="true"
+        [showOpenFileButton]="false"
+        [showPrintButton]="true"
+        [showSecondaryToolbarButton]="false"
+        [showHandToolButton]="false"
+        [showPresentationModeButton]="false"
+        [showPropertiesButton]="false"
+        [zoom]="'page-width'"
+      ></ngx-extended-pdf-viewer>
     </section>
   }
 </dialog>

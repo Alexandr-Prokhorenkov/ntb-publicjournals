@@ -10,6 +10,7 @@ import {
   computed,
   AfterViewInit,
 } from '@angular/core';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { SvgIconComponent } from '../svg-icon/svg-icon.component';
 import dialogPolyfill from 'dialog-polyfill';
@@ -32,7 +33,7 @@ interface PdfRow {
 
 @Component({
   selector: 'app-pdf-table',
-  imports: [CommonModule, SvgIconComponent],
+  imports: [CommonModule, SvgIconComponent, NgxExtendedPdfViewerModule],
   templateUrl: './pdf-table.html',
   styleUrl: './pdf-table.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
