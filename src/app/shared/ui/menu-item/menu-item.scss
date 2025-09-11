@@ -35,7 +35,7 @@
 }
 
 .icon-wrap {
-  height: 160px;
+  height: 130px;
 }
 
 .image-wrapper {
@@ -193,8 +193,6 @@
 
 .icon-wrapper app-svg-icon {
   display: inline-block;
-  width: 100px;
-  height: 100px;
   transition:
     transform 0.8s ease,
     color 0.3s ease,
@@ -225,8 +223,66 @@
   height: 100px;
 }
 
+.icon svg {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  display: block;
+}
+
 .menu-card.is-disabled,
 .menu-card.is-disabled .menu-card-link {
   cursor: not-allowed;
   pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .menu-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    inline-size: 180px;
+    block-size: 180px;
+  }
+
+  .menu-card-link {
+    justify-content: space-between;
+  }
+
+  .type-block {
+    display: none;
+  }
+
+  .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-block {
+    width: 180px;
+    height: 50px;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .text {
+    width: 180px;
+    font-size: 13px;
+  }
+
+  .menu-card-wrapper {
+    gap: 10px;
+    margin: 20px auto;
+  }
+  .icon {
+    height: 90px;
+  }
 }

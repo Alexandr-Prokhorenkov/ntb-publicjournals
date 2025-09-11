@@ -218,7 +218,7 @@ export class SvgIconRegistryService {
       case 'ecology':
         return `
          <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	       width="100px" height="100px" viewBox="0 0 199.276 198.92226" style="enable-background:new 0 0 199.276 198.92226;"
+	      viewBox="0 0 199.276 198.92226" style="enable-background:new 0 0 199.276 198.92226;"
 	       xml:space="preserve"><g>
 	       <path fill="currentColor" class="st0" d="M110.27604,127.5578c0.00995-0.00134,0.01984-0.0022,0.02979-0.00354l0.38184-0.05176l0.00958-0.01135
 		     c14.76965-2.09796,28.01354-9.61194,37.484-21.22601l0.0191,0.02448l0.78809-1.0083l0.48047-0.61572l-0.00977-0.01251

@@ -19,13 +19,17 @@
 }
 
 .our-description-title {
-
   padding-bottom: 20px;
   font-weight: var(--font-weight-semibold);
   font-size: 34px;
   line-height: 1;
   text-align: center;
 }
+
+  .indent {
+    display: inline-block;
+    text-indent: 20px;
+  }
 
 .our-description-text {
   padding-right: 10px;
