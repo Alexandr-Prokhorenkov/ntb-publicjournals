@@ -64,7 +64,7 @@ export class HeaderNavComponent {
   public readonly menuItems: MenuItem[] = [
     { label: 'О нас', route: '/', exact: true },
     { label: 'Научные журналы', route: '/journals' },
-    { label: 'Аналитические журналы', route: '/analytics' },
+    { label: 'Аналитические отчеты', route: '/analytics' },
     { label: 'Дайджесты', route: '/digests' },
     { label: 'Услуги', route: '/services' },
   ].map((item) => ({

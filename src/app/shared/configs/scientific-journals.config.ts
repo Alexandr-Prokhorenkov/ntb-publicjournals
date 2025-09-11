@@ -89,7 +89,7 @@ export const MENU_DIGESTS_ICONS: MenuItemCard[] = [
 export const MENU_ANALITICS_JOURNALS_ICONS: MenuItemCard[] = [
   {
     id: 1,
-    type: 'Аналитический журнал',
+    type: 'Аналитические отчеты',
     title: 'Робототехника',
     routerLink: '/analytics/robotics-analitics',
     iconName: 'roboto',
@@ -97,7 +97,7 @@ export const MENU_ANALITICS_JOURNALS_ICONS: MenuItemCard[] = [
   },
   {
     id: 2,
-    type: 'Аналитический журнал',
+    type: 'Аналитические отчеты',
     title: 'Искусственный интеллект',
     routerLink: '/analytics/artificial-intelligence',
     iconName: 'ai',
@@ -105,7 +105,7 @@ export const MENU_ANALITICS_JOURNALS_ICONS: MenuItemCard[] = [
   },
   {
     id: 3,
-    type: 'Аналитический журнал',
+    type: 'Аналитические отчеты',
     title: 'Радиоэлектроника',
     routerLink: '/analytics/radio-electronics',
     iconName: 'radio-electronics',
