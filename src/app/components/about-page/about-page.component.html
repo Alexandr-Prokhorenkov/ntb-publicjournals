@@ -23,11 +23,11 @@
         <div class="about-us-description-block">
           <app-photo-carousel
             [images]="[
-              'assets/images/kompas.jpg',
-              'assets/images/kompas-1.jpg',
-              'assets/images/kompas-2.jpg',
-              'assets/images/kompas-3.jpg',
-              'assets/images/kompas-4.jpg',
+              'assets/images/kompas.webp',
+              'assets/images/kompas-1.webp',
+              'assets/images/kompas-2.webp',
+              'assets/images/kompas-3.webp',
+              'assets/images/kompas-4.webp',
             ]"
             [loop]="true"
             viewportHeight="420px"
@@ -149,10 +149,9 @@
           <div class="contact-item-icon">
             <app-svg-icon class="phone-icon" [name]="'phone'"></app-svg-icon>
           </div>
-
           <div class="phone-numbers">
-            <p class="phone-text">+7 (495) 491-57-97 (приемная)</p>
-            <p class="phone-text">+7 (495) 491-44-80 (факс)</p>
+            <a class="phone-text" href="tel:+74954915797">+7 (495) 491-57-97 (приемная)</a>
+            <a class="phone-text" href="tel:+74954914480">+7 (495) 491-44-80 (факс)</a>
           </div>
         </div>
         <div class="contact-item">
@@ -161,7 +160,7 @@
             <app-svg-icon class="phone-icon" [name]="'email'"></app-svg-icon>
           </div>
           <div class="phone-numbers">
-            <p class="phone-text">secretariat@ntckompas.ru</p>
+              <a class="phone-text" href="mailto:secretariat@ntckompas.ru">secretariat@ntckompas.ru</a>
           </div>
         </div>
         <div class="contact-item">
@@ -174,7 +173,8 @@
           </div>
         </div>
       </div>
-      <img class="image-map" src="assets/images/map.png" alt="">
+      <img class="image-map" src="assets/images/map.webp" alt="карта">
       </div>
     </div>
   </div>
+  <app-scroll-up></app-scroll-up>

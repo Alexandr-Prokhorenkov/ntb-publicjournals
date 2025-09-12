@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { YearInfo, YearSectionComponent } from '../../shared/ui/year-section/year-section';
 import { PdfItem } from '../../shared/ui/pdf-table/pdf-table';
+import { ScrollUp } from '../../shared/ui/scroll-up/scroll-up';
 
 @Component({
   selector: 'app-data-protection',
-  imports: [YearSectionComponent],
+  imports: [YearSectionComponent, ScrollUp],
   templateUrl: './data-protection.html',
   styleUrl: './data-protection.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,0 +1,12 @@
+@if (visible()) {
+  <button
+    type="button"
+    class="scroll-top-btn"
+    aria-label="Прокрутить вверх"
+    (click)="scrollToTop()"
+  ><div class="icon-wrapper">
+    <app-svg-icon class="arrow-icon" [name]="'arrow-up'"></app-svg-icon>
+  </div>
+
+  </button>
+}

@@ -3,6 +3,7 @@ import { SliderComponent } from '../../shared/ui/slider/ui/slider.component';
 import { MAIN_SLIDER_DATA } from '../../shared/configs/main-slider.config';
 import { SvgIconComponent } from '../../shared/ui/svg-icon/svg-icon.component';
 import { OurServiceCardComponent } from '../../shared/ui/our-service-card/our-service-card.component';
+import { ScrollUp } from '../../shared/ui/scroll-up/scroll-up';
 
 interface ServiceItem {
   icon: string;
@@ -13,7 +14,7 @@ interface ServiceItem {
 @Component({
   selector: 'app-services-page',
   standalone: true,
-  imports: [SliderComponent, SvgIconComponent, OurServiceCardComponent],
+  imports: [SliderComponent, SvgIconComponent, OurServiceCardComponent, ScrollUp],
   templateUrl: './services-page.component.html',
   styleUrl: './services-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
