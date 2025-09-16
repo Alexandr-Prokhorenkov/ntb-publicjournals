@@ -23,6 +23,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
+              "src/yandex_c91532e06c68117f.html",
               {
                 "glob": "**/*",
                 "input": "src/assets",

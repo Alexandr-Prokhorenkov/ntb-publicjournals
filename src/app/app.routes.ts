@@ -6,6 +6,7 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./components/about-page/about-page.component').then((m) => m.AboutPageComponent),
   },
+
   {
     path: 'journals',
     loadComponent: () =>
